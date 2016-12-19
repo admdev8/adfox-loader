@@ -20,7 +20,9 @@ Libs:
 //ssp.rambler.ru/capirs.js
 
 На 16.12.2016. Версии неизвестны.
+
 ### Использование
+
  Минимальный inline
 ```html
 <!DOCTYPE html>
@@ -91,7 +93,9 @@ var LoadingMethods = {
     'default': 'ssp'
   };
 ```
+
 Методы содержащие постфикс **Postpone** предназначены для случаев когда вызов баннера осуществляется по условию (по возможности избегайте этого).
+
 ```html
 <body>
         <h1>My First Heading</h1>
@@ -99,14 +103,19 @@ var LoadingMethods = {
         <script src='application.js'/>
 </body>
 ```
+
 application.js:
+
  ```javascript
  !isKnownUser && $(".js-adfox-235x42")[0].loadBanner();
 ```
+
  Теперь только незарегистрированный клиент увидит js-adfox-235x42 после доскрола до нужного места.
 
  ### Публичные методы и свойства
+ 
  #### AdfoxLoader.init
+ 
 Метод инициализации рекламного места одним из способов указанных в разделе "Варианты инициализации".
 После иницизации на dom элементе доступны:
  ```javascript
@@ -136,29 +145,39 @@ AdfoxLoader.init(el2.id, options2.common, options2.begun);
 Если вы используете асинхронную версию  carpis.js, и пытаетесь проинициализировать рекламное место до ее готовности, AdfoxLoader отложит вызовы и осуществит их после полной загрузки carpis.js.
 
 #### AdfoxLoader.waitLib()
+
 Возвращает bool, показывает готова ли carpis.js
 
 #### AdfoxLoader.refreshPrKey()
+
 В некоторых случаях чтобы обновить баннеры на новые, без полной перезгрузки страницы нужно использовать этот грязный хак.
 
 #### AdfoxLoader.bannersLoadingQueue
+
 Очередь из вызовов баннеров, в данный момент ожидающая готовности carpis.js
 
 
 # adfox-loader-spy.js
+
 Spy для adfoxLoader
+
 ### Назначение
+
 - Тестирование и аудит рекламных вызовов
 
 ### Использование
+
 Если вы используете inline  вставки для вызова баннеров, рекомендуется создать отдельный  bundle для скриптов подключаемых в шапке и подключать его минифицированную версию
+
  ```javascript
 require('./adfox-loader');
 
 // Spy patching of AdfoxLoader for Nightwatch tests
 require('./adfox-loader-spy')(AdfoxLoader);
 ```
+
 Теперь аргументы всех вызовов иницилизции рекламных мест на странице доступны в виде массива
+
  ```javascript
 console.console.log(AdfoxLoader.init.callsLog); // [Array[5], Array[5]]
 ```
