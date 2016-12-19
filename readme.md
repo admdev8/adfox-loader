@@ -9,11 +9,11 @@ Pure js адаптер без таймаутов и mutationobserver для би
 - Тестирование рекламных вызовов (см. adfox-loader-spy.js)
 ### Совместимость
 
-Browsers:
+**Browsers:**
 
 тестировалось в IE 10+
 
-Libs:
+**Libs:**
 
 //ssp.rambler.ru/capirs_async.js
 
